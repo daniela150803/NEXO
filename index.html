@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoVoz - Asistente Académico por Voz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="screen-wrapper">
+            <!-- Home Screen -->
+            <div id="home-screen" class="screen active bg-gradient-home">
+                <div class="particles-container" id="particles-container"></div>
+                <div class="grid-pattern"></div>
+
+                <div class="screen-content no-scroll">
+                    <div class="main-content">
+                        <!-- Hero Section -->
+                        <div class="hero-section">
+                            <button class="history-btn" data-action="history">
+                                <i class="fas fa-history"></i>
+                                <span>Ver historial</span>
+                            </button>
+
+                            <h1 class="main-title">NexoVoz</h1>
+                            <p class="subtitle">Tu asistente académico inteligente activado por voz</p>
+
+                            <div class="stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Procesamiento instantáneo</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Comprensión contextual</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-sparkles"></i>
+                                    <span>Resultados inteligentes</span>
+                                </div>
+                            </div>
+
+                            <div class="mic-section">
+                                <div class="mic-button-container" data-action="mic">
+                                    <div class="pulse-ring"></div>
+                                    <div class="pulse-ring"></div>
+                                    <div class="mic-button">
+                                        <i class="fas fa-microphone"></i>
+                                    </div>
+                                </div>
+                                <div class="mic-instruction">
+                                    <p class="mic-instruction-main">Di: "Hola NexoVoz"</p>
+                                    <p class="mic-instruction-sub">o selecciona un comando a la derecha</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Commands Section -->
+                        <div class="commands-section">
+                            <div class="mic-section mobile">
+                                <div class="mic-button-container" data-action="mic">
+                                    <div class="pulse-ring"></div>
+                                    <div class="mic-button">
+                                        <i class="fas fa-microphone"></i>
+                                    </div>
+                                </div>
+                                <div class="mic-instruction mobile">
+                                    <p class="mic-instruction-main">Di: "Hola NexoVoz"</p>
+                                    <p class="mic-instruction-sub">o selecciona un comando abajo</p>
+                                </div>
+                            </div>
+
+                            <div class="commands-grid">
+                                <button class="command-card" data-command="resumen">
+                                    <div class="command-card-border gradient-orange-rose"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-orange-rose">
+                                                <div class="command-icon-glow gradient-orange-rose"></div>
+                                                <i class="fas fa-book"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear resumen</h3>
+                                                <p class="command-description">Extrae ideas clave de cualquier tema</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="command-card" data-command="tareas">
+                                    <div class="command-card-border gradient-cyan-teal"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-cyan-teal">
+                                                <div class="command-icon-glow gradient-cyan-teal"></div>
+                                                <i class="fas fa-list-check"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear lista de tareas</h3>
+                                                <p class="command-description">Organiza y prioriza tus actividades</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="command-card" data-command="mapa">
+                                    <div class="command-card-border gradient-lime-emerald"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-lime-emerald">
+                                                <div class="command-icon-glow gradient-lime-emerald"></div>
+                                                <i class="fas fa-diagram-project"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear mapa conceptual</h3>
+                                                <p class="command-description">Visualiza conexiones entre conceptos</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div class="footer-hint">
+                                <p class="footer-text">✓ Interfaz accesible · Control total por voz o táctil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listening Screen -->
+            <div id="listening-screen" class="screen bg-gradient-listening">
+                <div class="bg-blob orange-rose"></div>
+                <div class="bg-blob cyan-teal"></div>
+                <div class="grid-pattern grid-pattern-small"></div>
+
+                <div class="screen-content">
+                    <div class="header">
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span class="live-text">En vivo</span>
+                        </div>
+                        <button class="cancel-btn" data-action="cancel" aria-label="Cancelar">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="main-content">
+                        <div class="listening-visual">
+                            <div class="concentric-circles"></div>
+                            <div class="concentric-circles"></div>
+                            <div class="concentric-circles"></div>
+                            <div class="concentric-circles"></div>
+
+                            <div class="mic-container">
+                                <div class="mic-inner-glow"></div>
+                                <i class="fas fa-microphone"></i>
+                                <div class="status-badge">
+                                    <i class="fas fa-tower-broadcast"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <div class="status-header">
+                                <h2>Escuchando...</h2>
+                                <p>Habla con claridad y naturalidad</p>
+                            </div>
+
+                            <div class="wave-visualizer">
+                                <div class="wave-bars"></div>
+                            </div>
+
+                            <div class="transcription-box">
+                                <div class="transcription-header">
+                                    <div class="green-dot"></div>
+                                    <span class="transcription-label">Transcripción en vivo</span>
+                                </div>
+                                <div class="transcription-content">
+                                    <p class="transcription-text" id="transcript-text">Esperando...</p>
+                                </div>
+                            </div>
+
+                            <div class="text-input-box">
+                                <div class="text-input-label">
+                                    <i class="fas fa-keyboard"></i>
+                                    <span>O escribe tu solicitud</span>
+                                </div>
+                                <div class="text-input-row">
+                                    <input type="text" id="text-command-input" class="text-command-input" placeholder="Ej: Crea un resumen sobre el sistema solar..." autocomplete="off" />
+                                    <button class="text-send-btn" id="text-send-btn">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Results Screen - Resumen -->
+            <div id="results-resumen-screen" class="screen bg-gradient-results-resumen">
+                <div class="grid-pattern"></div>
+
+                <div class="screen-content">
+                    <div class="main-content results-main-content">
+                        <div class="results-inner">
+                            <div class="success-badge">
+                                <i class="fas fa-circle-check"></i>
+                                <span>Resumen generado exitosamente</span>
+                            </div>
+
+                            <h2 class="results-title">Energías Renovables</h2>
+                            <p class="results-subtitle">Aquí está tu resumen completo sobre el tema solicitado</p>
+
+                            <div class="results-grid">
+                                <div class="result-card full-width">
+                                    <div class="command-card-border gradient-lime-emerald"></div>
+                                    <div class="result-card-content">
+                                        <div class="result-card-header">
+                                            <i class="result-card-icon fas fa-lightbulb" style="color: #a3e635;"></i>
+                                            <h3 class="result-card-title">Idea Principal</h3>
+                                        </div>
+                                        <p class="result-card-text">Las energías renovables son fuentes de energía limpia e inagotable que se obtienen de recursos naturales como el sol, el viento y el agua. Son fundamentales para reducir la dependencia de combustibles fósiles y mitigar el cambio climático.</p>
+                                    </div>
+                                </div>
+
+                                <div class="result-card">
+                                    <div class="command-card-border gradient-orange-rose"></div>
+                                    <div class="result-card-content">
+                                        <div class="result-card-header">
+                                            <i class="result-card-icon fas fa-list-ul" style="color: #fb923c;"></i>
+                                            <h3 class="result-card-title">Puntos Clave</h3>
+                                        </div>
+                                        <ul class="result-list">
+                                            <li>Energía solar: captación directa de luz solar</li>
+                                            <li>Energía eólica: aprovechamiento del viento</li>
+                                            <li>Energía hidráulica: fuerza del agua</li>
+                                            <li>Reducción de emisiones CO₂</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="result-card">
+                                    <div class="command-card-border gradient-cyan-teal"></div>
+                                    <div class="result-card-content">
+                                        <div class="result-card-header">
+                                            <i class="result-card-icon fas fa-chart-line" style="color: #22d3ee;"></i>
+                                            <h3 class="result-card-title">Conclusión</h3>
+                                        </div>
+                                        <p class="result-card-text">La transición hacia energías renovables es esencial para un futuro sostenible. Su implementación continúa creciendo globalmente, ofreciendo beneficios ambientales y económicos a largo plazo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="action-btn" data-action="save">
+                                    <i class="fas fa-download"></i>
+                                    <span>Guardar</span>
+                                </button>
+                                <button class="action-btn" data-action="listen">
+                                    <i class="fas fa-volume-high"></i>
+                                    <span>Escuchar</span>
+                                </button>
+                                <button class="action-btn" data-action="improve">
+                                    <i class="fas fa-wand-magic-sparkles"></i>
+                                    <span>Mejorar</span>
+                                </button>
+                            </div>
+
+                            <button class="new-command-btn" data-action="new-command">
+                                <div class="new-command-border"></div>
+                                <div class="new-command-content">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Nuevo Comando</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen - Tareas -->
+            <div id="results-tareas-screen" class="screen bg-gradient-results-tareas">
+                <div class="grid-pattern"></div>
+
+                <div class="screen-content">
+                    <div class="main-content results-main-content">
+                        <div class="results-inner">
+                            <div class="success-badge">
+                                <i class="fas fa-circle-check"></i>
+                                <span>Lista creada exitosamente</span>
+                            </div>
+
+                            <h2 class="results-title">Proyecto Final</h2>
+                            <p class="results-subtitle">Tu lista de tareas organizada por prioridad</p>
+
+                            <div class="priority-section">
+                                <div class="priority-header">
+                                    <div class="priority-badge high">
+                                        <span class="badge-dot"></span>
+                                        Alta
+                                    </div>
+                                    <span class="priority-count">3 tareas</span>
+                                </div>
+                                <div class="tasks-list">
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Completar investigación de fuentes bibliográficas</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Redactar introducción y marco teórico</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Enviar primer borrador al profesor</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="priority-section">
+                                <div class="priority-header">
+                                    <div class="priority-badge medium">
+                                        Media
+                                    </div>
+                                    <span class="priority-count">2 tareas</span>
+                                </div>
+                                <div class="tasks-list">
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Diseñar presentación PowerPoint</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Preparar guion de exposición oral</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="priority-section">
+                                <div class="priority-header">
+                                    <div class="priority-badge low">
+                                        Baja
+                                    </div>
+                                    <span class="priority-count">2 tareas</span>
+                                </div>
+                                <div class="tasks-list">
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Revisar formato APA de bibliografía</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="task-checkbox"></div>
+                                        <span class="task-text">Crear índice y tabla de contenidos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="action-btn" data-action="save">
+                                    <i class="fas fa-download"></i>
+                                    <span>Guardar</span>
+                                </button>
+                                <button class="action-btn" data-action="listen">
+                                    <i class="fas fa-volume-high"></i>
+                                    <span>Escuchar</span>
+                                </button>
+                                <button class="action-btn" data-action="improve">
+                                    <i class="fas fa-wand-magic-sparkles"></i>
+                                    <span>Mejorar</span>
+                                </button>
+                            </div>
+
+                            <button class="new-command-btn" data-action="new-command">
+                                <div class="new-command-border"></div>
+                                <div class="new-command-content">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Nuevo Comando</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Screen -->
+            <div id="error-screen" class="screen bg-gradient-error">
+                <div class="bg-blob orange-amber"></div>
+                <div class="grid-pattern grid-pattern-small"></div>
+
+                <div class="screen-content">
+                    <div class="main-content">
+                        <div class="error-visual">
+                            <div class="error-icon-container">
+                                <div class="error-icon-wrapper">
+                                    <div class="error-circle"></div>
+                                    <div class="error-circle"></div>
+                                    <div class="error-icon-bg">
+                                        <i class="fas fa-circle-question"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="error-message">
+                                <h2 class="error-title">No entendí tu solicitud</h2>
+                                <p class="error-description">No pude identificar con precisión lo que necesitas</p>
+                                <p class="error-hint">Intenta ser más específico o selecciona una de las opciones sugeridas</p>
+                            </div>
+
+                            <div class="error-actions">
+                                <button class="retry-btn" data-action="retry">
+                                    <div class="retry-btn-border"></div>
+                                    <div class="retry-btn-content">
+                                        <i class="fas fa-rotate-left"></i>
+                                        <span>Intentar de nuevo</span>
+                                    </div>
+                                </button>
+
+                                <button class="home-btn" data-action="home">
+                                    <div class="home-btn-border"></div>
+                                    <div class="home-btn-content">
+                                        <i class="fas fa-house"></i>
+                                        <span>Inicio</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="suggestions-section">
+                            <div class="commands-grid">
+                                <button class="command-card" data-command="resumen">
+                                    <div class="command-card-border gradient-orange-rose"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-orange-rose">
+                                                <div class="command-icon-glow gradient-orange-rose"></div>
+                                                <i class="fas fa-book"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear resumen</h3>
+                                                <p class="command-description">Extrae ideas principales</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="command-card" data-command="tareas">
+                                    <div class="command-card-border gradient-cyan-teal"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-cyan-teal">
+                                                <div class="command-icon-glow gradient-cyan-teal"></div>
+                                                <i class="fas fa-list-check"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear lista de tareas</h3>
+                                                <p class="command-description">Organiza actividades</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button class="command-card" data-command="mapa">
+                                    <div class="command-card-border gradient-lime-emerald"></div>
+                                    <div class="command-card-content">
+                                        <div class="command-card-inner">
+                                            <div class="command-icon-container gradient-lime-emerald">
+                                                <div class="command-icon-glow gradient-lime-emerald"></div>
+                                                <i class="fas fa-diagram-project"></i>
+                                            </div>
+                                            <div class="command-text">
+                                                <h3 class="command-title">Crear mapa conceptual</h3>
+                                                <p class="command-description">Conecta conceptos</p>
+                                            </div>
+                                            <div class="command-arrow">→</div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div class="error-actions mobile">
+                                <button class="retry-btn" data-action="retry">
+                                    <div class="retry-btn-border"></div>
+                                    <div class="retry-btn-content">
+                                        <i class="fas fa-rotate-left"></i>
+                                        <span>Intentar de nuevo</span>
+                                    </div>
+                                </button>
+
+                                <button class="home-btn" data-action="home">
+                                    <div class="home-btn-border"></div>
+                                    <div class="home-btn-content">
+                                        <i class="fas fa-house"></i>
+                                        <span>Volver al inicio</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Screen -->
+            <div id="history-screen" class="screen bg-gradient-history">
+                <div class="grid-pattern"></div>
+
+                <div class="screen-content">
+                    <div class="history-header">
+                        <button class="back-btn" data-action="home">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <div class="history-title-section">
+                            <h2 class="history-title">Historial</h2>
+                            <p class="history-subtitle">Tus comandos recientes</p>
+                        </div>
+                        <button class="clear-history-btn" id="clear-history-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="history-list" id="history-list">
+                        <!-- populated by JS -->
+                    </div>
+
+                    <div class="history-empty" id="history-empty" style="display:none;">
+                        <div class="empty-icon">
+                            <i class="fas fa-clock-rotate-left"></i>
+                        </div>
+                        <p class="empty-title">Sin historial aún</p>
+                        <p class="empty-desc">Tus comandos aparecerán aquí después de usarlos</p>
+                        <button class="action-btn mt-4" data-action="home">
+                            <i class="fas fa-microphone"></i>
+                            <span>Empezar ahora</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
